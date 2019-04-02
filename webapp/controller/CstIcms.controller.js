@@ -11,8 +11,8 @@ sap.ui.define([
 		
 		onRefresh: function(){
 			var oModel = this.getOwnerComponent().getModel();
-			
 			oModel.refresh(true);
+			this.getView().byId("tableCstIcms").clearSelection();
 		},
 		
 		onIncluir: function(){
@@ -57,7 +57,7 @@ sap.ui.define([
 			});
 			
 			if(nIndex === -1){
-				MessageBox.information("Selecione um CST-ICMS da tabela!");
+				MessageBox.warning("Selecione um CST-ICMS na tabela!");
 				return;
 			}
 			
@@ -73,7 +73,7 @@ sap.ui.define([
 			var nIndex = oTable.getSelectedIndex();
 			
 			if(nIndex === -1){
-				MessageBox.information("Selecione um CST-ICMS da tabela!");
+				MessageBox.warning("Selecione um CST-ICMS na tabela!");
 				return;
 			}
 			
@@ -93,7 +93,7 @@ sap.ui.define([
 			var oViewModel = this.getModel("view");
 			
 			if(this._checarCampos(this.getView()) === true){
-				MessageBox.information("Preencha todos os campos obrigatórios!");
+				MessageBox.warning("Preencha todos os campos obrigatórios!");
 				return;
 			} else{
 				oModel.submitChanges({
