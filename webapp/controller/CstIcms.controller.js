@@ -1,12 +1,25 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageBox"
-], function(Controller, MessageBox) {
+	"sap/m/MessageBox",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function(Controller, MessageBox, Filter, FilterOperator) {
 	"use strict";
 
 	return Controller.extend("br.com.idxtecCstIcms.controller.CstIcms", {
 		onInit: function(){
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+		},
+		
+		filtraIcms: function(oEvent){
+			var sQuery = oEvent.getParameter("query");
+			var oFilter = new Filter("Codigo", FilterOperator.Contains, sQuery);
+			
+			var aFilters = [
+				oFilter
+			];
+
+			this.getView().byId("tableCstIcms").getBinding("rows").filter(aFilters, "Application");
 		},
 		
 		onRefresh: function(){
