@@ -25,7 +25,7 @@
 							<Toolbar>
 								<Title text="Lista de ICMS"/>
 								<ToolbarSpacer/>
-								<SearchField placeholder="Pesquisar ICMS..." width="30%" search="filtraIcms"/>
+								<SearchField placeholder="Pesquisar código..." width="30%" search="filtraIcms"/>
 							</Toolbar>
 						</t:toolbar>
 						<t:columns>
